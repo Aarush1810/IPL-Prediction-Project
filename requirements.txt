@@ -9,4 +9,4 @@ pandas
 numpy
 scikit-learn
 python-dotenv
-bcrypt==3.2.2
+bcrypt
