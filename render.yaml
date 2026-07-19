@@ -2,8 +2,7 @@ services:
   - type: web
     name: ipl-prediction-api
     runtime: python
-    buildCommand: pip install -r backend/requirements.txt
-    startCommand: cd backend && gunicorn app.main:app --workers 2 --bind 0.0.0.0:$PORT
+    dockerfilePath: Dockerfile
     envVars:
       - key: PYTHON_VERSION
         value: "3.11.8"
