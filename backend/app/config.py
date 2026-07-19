@@ -1,3 +1,4 @@
+import os
 from pydantic_settings import BaseSettings
 
 
@@ -14,3 +15,6 @@ class Settings(BaseSettings):
 
 
 settings = Settings()
+
+if os.environ.get("VERCEL"):
+    settings.DATABASE_URL = "sqlite:///tmp/ipl_prediction.db"

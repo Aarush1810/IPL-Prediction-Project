@@ -65,6 +65,9 @@ ALLOWED_ORIGINS = [
 VERCEL_URL = os.environ.get("VERCEL_URL")
 if VERCEL_URL:
     ALLOWED_ORIGINS.append(f"https://{VERCEL_URL}")
+VERCEL_APP = os.environ.get("VERCEL")
+if VERCEL_APP:
+    ALLOWED_ORIGINS.append("https://ipl-prediction-project.vercel.app")
 ALLOWED_ORIGINS.append("*")
 
 app.add_middleware(
