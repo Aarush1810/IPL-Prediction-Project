@@ -104,7 +104,7 @@ def register(user_data: UserCreate, db: Session = Depends(get_db)):
         return Token(
             access_token=token,
             token_type="bearer",
-            user=UserResponse.model_validate(user)
+            user=UserResponse.from_orm(user)
         )
     except ValueError as e:
         raise HTTPException(status_code=400, detail=str(e))
@@ -119,7 +119,7 @@ def login(user_data: UserLogin, db: Session = Depends(get_db)):
     return Token(
         access_token=token,
         token_type="bearer",
-        user=UserResponse.model_validate(user)
+        user=UserResponse.from_orm(user)
     )
 
 
