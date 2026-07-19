@@ -9,4 +9,4 @@ COPY backend/ .
 
 EXPOSE $PORT
 
-CMD gunicorn app.main:app --workers 2 --bind 0.0.0.0:$PORT
+CMD gunicorn app.main:app -k uvicorn.workers.UvicornWorker --workers 2 --bind 0.0.0.0:$PORT
